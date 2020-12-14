@@ -4,7 +4,6 @@ import axios from 'axios'
 const Search = () => {
     const [term, setTerm] = useState('programming')
     const [results, setResult] = useState([])
-    console.log(results);
     useEffect(() => {
         // axios.get('url')
         // .then((res) => {
@@ -28,9 +27,21 @@ const Search = () => {
             setResult(data.query.search)
         }
 
+    if (term && !results.length) {
         search()
-    }, [term])
+    } else {
+        const timeoutId = setTimeout(() =>{
+            if (term) {
+                search()
+              }
+            }, 1000)
     
+        return () => {
+            clearTimeout(timeoutId)
+        }
+    }
+}, [term])
+
     return (
         <div>
             <div className="ui form">
