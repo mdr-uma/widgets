@@ -4,14 +4,16 @@ const Dropdown = ({ options }) => {
     const renderedOptions = options.map((option) => {
         return (
             <div key={options.value} className="item" >
-                {option.lable}
+                {option.label}
             </div>
         )
     })
 
     return(
-        <div>
-            <h1>Dropdown</h1>
+        <div className="ui form">
+            <div className="field">
+                <label className="label">select color</label>
+            </div>
         </div>
     )
 }
