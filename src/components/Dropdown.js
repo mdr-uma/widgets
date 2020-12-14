@@ -15,6 +15,8 @@ const Dropdown = ({ options }) => {
                 <label className="label">select color</label>
                 <div className="ui selection dropdown visible active">
                     <i className="dropdown icon"></i>
+                    <div className="text">select color</div>
+                    <div className="menu visible transition">{renderedOptions}</div>
                 </div>
             </div>
         </div>
