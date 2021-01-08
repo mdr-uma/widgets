@@ -3,6 +3,18 @@ import axios from 'axios'
 
 const Convert = ({ language, text }) => {
     const [transleted, setTransleted] = useState("")
+    const [debouncedText, setDebouncedText] = useState(text)
+
+    useEffect(() => {
+        const timerId = setTimeout(() => {
+            setDebouncedText(text)
+        }, 500)
+
+        return () => {
+            clearTimeout(timerId)
+        }
+
+    }, [text])
     
     useEffect(() => {
         const doTranslation = async () => {
