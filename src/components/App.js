@@ -3,6 +3,7 @@ import Accordion from './Accordion'
 import Dropdown from './Dropdown'
 import Search from './Search'
 import Translate from './Translate'
+import Header from './Header'
 
 const items = [
     {
@@ -40,13 +41,14 @@ const App = () => {
     const [selected, setSelected] = useState(options[0])
 
     return (
-            <div>
-                <Translate />
-                <Dropdown options= {options} selected={selected} onSelectedChange={setSelected}/>
-                <Search />
-                <Accordion items={items}/>
-            </div>
-        )
+        <div>
+            <Header />
+            <Translate />
+            <Dropdown options= {options} selected={selected} onSelectedChange={setSelected}/>
+            <Search />
+            <Accordion items={items}/>
+        </div>
+    )
 }
 
 export default App 
